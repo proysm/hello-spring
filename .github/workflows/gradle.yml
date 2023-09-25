@@ -22,7 +22,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '17' # Corrected to use Java 17
-          distribution: "adopt"
+          distribution: 'temurin'
 
       - name: Make application.properties
         run: |
@@ -41,7 +41,7 @@ jobs:
         run: |
           docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
           docker build -f Dockerfile -t ${{ secrets.DOCKER_REPO }}/directors-dev .
-          docker push ${{ secrets.DOCKER_REPO }}/directors-dev
+          docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}/directors-dev
         # Corrected the Dockerfile reference and the build command
 
       - name: Deploy to server
