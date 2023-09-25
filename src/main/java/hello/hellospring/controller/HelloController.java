@@ -16,6 +16,7 @@ public class HelloController {
     public String hello(Model model){ // 스프링부트에서 model을 넣어준다.
         model.addAttribute("data", "hello!?"); // key: data, 값: hello!?
         return "hello"; // return 의 이름이 hello 이므로, templates 폴더에 있는 hello.html 로 간다.
+        // 주석추가
     }
 
     @GetMapping("/hello-mvc")
